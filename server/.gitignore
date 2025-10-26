@@ -1,4 +1,4 @@
 // hide file from git 
 
 node_modules
-.env
+.env*
