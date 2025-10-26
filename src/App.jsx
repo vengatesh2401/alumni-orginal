@@ -1,9 +1,14 @@
 import React from 'react'
+import Signin from './components/Signin/Signin.jsx'
+import Register from './components/Register/Register.jsx'
+import Home from './pages/Home.jsx'
 
 const App = () => {
   return (
     <div>
-      <h1>Home</h1>
+      < Signin />
+      < Register />
+      < Home />
     </div>
   )
 }
