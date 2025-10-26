@@ -1,7 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
-const connectDB = require('./config/db');
 
 // calling env file
 dotenv.config();
@@ -17,8 +16,6 @@ app.listen(PORT, () => {
 app.use(cors());
 app.use(express.json());
 
-// calling database
-connectDB();
 
 
 
