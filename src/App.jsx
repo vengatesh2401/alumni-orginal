@@ -1,15 +1,13 @@
 import React from 'react'
-import Signin from './components/Signin/Signin.jsx'
-import Register from './components/Register/Register.jsx'
-import Home from './pages/Home.jsx'
+import { BrowserRouter,Routes,Route } from "react-router-dom"
 
 const App = () => {
   return (
-    <div>
-      < Signin />
-      < Register />
-      < Home />
-    </div>
+    <BrowserRouter>
+      <Routes>
+
+      </Routes>
+    </BrowserRouter>
   )
 }
 
