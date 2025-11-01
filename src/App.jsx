@@ -1,16 +1,16 @@
 import React from 'react'
 import './App.css'
+import { BrowserRouter, Routes, Router } from 'react-router-dom'
 
 function App() {
   
 
   return (
-   <div className = "app">
-    <h1 className = "text-3xl font-bold underline text-center text-red-500">
-      Hello world!
-    </h1>
-   </div>
-  )
+   <BrowserRouter>
+    <Routes>
+
+    </Routes>
+   </BrowserRouter>  )
 }
 
 export default App
