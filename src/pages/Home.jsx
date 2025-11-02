@@ -41,7 +41,7 @@ function Main() {
     >
       {/* Top Navbar */}
       <header
-        className={` ml-70 top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/70 dark:bg-gray-900/70 border-b ${isDark ? 'border-gray-700' : 'border-gray-200'} shadow-lg`}
+        className={`fixed ml-72 top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/70 dark:bg-gray-900/70 border-b ${isDark ? 'border-gray-700' : 'border-gray-200'} shadow-lg`}
       >
         <div className="flex ml-5 items-center justify-between px-2 py-2">
           <div className="flex items-center gap-4">
@@ -131,21 +131,14 @@ function Main() {
         </div>
       </aside>
 
-      {/* Mobile Overlay */}
-      {isSidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-30 lg:hidden"
-          onClick={() => setIsSidebarOpen(false)}
-        />
-      )}
 
       {/* Main Content */}
-      <main className="pt-20 lg:ml-72 min-h-screen p-6 lg:p-10">
+      <main className="pt-20 lg:ml-72 min-h-screen p-6 lg:p-10 mt-10">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
           <div className="glass-card rounded-3xl p-8 mb-10 shadow-2xl backdrop-blur-xl bg-white/60 dark:bg-gray-800/60 border border-white/20">
-            <h2 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3">
-              Welcome Back, John!
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4 p-2">
+              Welcome Back, vengatesh!
             </h2>
             <p className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
               Explore your alumni network and stay connected.
@@ -155,9 +148,9 @@ function Main() {
           {/* Stats Row */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {[
-              { label: 'Total Alumni', value: '12,480', color: 'from-blue-500 to-cyan-500' },
-              { label: 'Events This Month', value: '24', color: 'from-purple-500 to-pink-500' },
-              { label: 'Jobs Posted', value: '156', color: 'from-green-500 to-emerald-500' },
+              { label: 'Total Alumni', value: '-', color: 'from-blue-500 to-cyan-500' },
+              { label: 'Events This Month', value: '-', color: 'from-purple-500 to-pink-500' },
+              { label: 'Jobs Posted', value: '-', color: 'from-green-500 to-emerald-500' },
             ].map((stat, i) => (
               <div key={i} className="glass-card rounded-2xl p-6 backdrop-blur-xl bg-white/50 dark:bg-gray-800/50 border border-white/20 hover:scale-105 transition-transform duration-300">
                 <div className={`w-14 h-14 bg-gradient-to-r ${stat.color} rounded-2xl flex items-center justify-center mb-4 shadow-lg`}>
@@ -168,40 +161,6 @@ function Main() {
               </div>
             ))}
           </div>
-
-          {/* Feature Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {menuItems.map((item) => {
-              const Icon = item.icon;
-              const isActive = activeItem === item.label;
-
-              return (
-                <button
-                  key={item.label}
-                  onClick={() => handleMenuClick(item.label)}
-                  className={`glass-card rounded-2xl p-6 backdrop-blur-xl border transition-all duration-500 group hover:shadow-2xl ${
-                    isActive
-                      ? 'bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border-indigo-400 shadow-2xl scale-105'
-                      : 'bg-white/40 dark:bg-gray-800/40 border-white/20 hover:border-indigo-300'
-                  }`}
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <div className={`p-4 rounded-2xl mb-4 transition-all duration-300 ${isActive ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-xl' : 'bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 text-gray-700 dark:text-gray-300 group-hover:from-indigo-500 group-hover:to-purple-500 group-hover:text-white'}`}>
-                      <Icon className="w-8 h-8" />
-                    </div>
-                    <h3 className={`font-bold text-lg mb-1 ${isDark ? 'text-white' : 'text-gray-800'}`}>
-                      {item.label}
-                    </h3>
-                    <p className={`text-sm ${isActive ? 'text-indigo-600 font-medium' : isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                      {isActive ? 'Currently Active' : 'Click to explore'}
-                    </p>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </main>
 
       {/* Custom Styles */}
       <style jsx>{`
@@ -217,6 +176,8 @@ function Main() {
           border: 1px solid rgba(255, 255, 255, 0.1);
         }
       `}</style>
+    </div>
+      </main>
     </div>
   );
 }
