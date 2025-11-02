@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { PanelRightOpen } from 'lucide-react';
 import {
   Menu,
   X,
@@ -16,7 +17,6 @@ import {
 } from 'lucide-react';
 
 function Main() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeItem, setActiveItem] = useState('Dashboard');
   const [isDark, setIsDark] = useState(false);
 
@@ -32,8 +32,8 @@ function Main() {
 
   const handleMenuClick = (label) => {
     setActiveItem(label);
-    setIsSidebarOpen(false);
   };
+
 
   return (
     <div
@@ -45,12 +45,6 @@ function Main() {
       >
         <div className="flex ml-5 items-center justify-between px-2 py-2">
           <div className="flex items-center gap-4">
-            <button
-              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-              className="p-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 lg:hidden"
-            >
-              {isSidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center shadow-md">
                 <span className="text-white font-bold text-lg">AV</span>
@@ -82,12 +76,10 @@ function Main() {
       </header>
 
       {/* Sidebar */}
-      <aside
-        className={`fixed inset-y-0 left-0 z-40 w-72 transform transition-all duration-500 ease-in-out lg:translate-x-0 pt-20 lg:pt-0  ${
-          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
-      >
+      <aside className=" fixed inset-y-0 left-0 z-40 w-72 ">  
+       
         <div className="h-full bg-gradient-to-b from-gray-900 via-purple-900 to-gray-900 p-6 shadow-2xl">
+
           <nav className="">
             {menuItems.map((item) => {
               const Icon = item.icon;
@@ -120,7 +112,7 @@ function Main() {
             })}
           </nav>
 
-          <div className="absolute bottom-8 left-6 right-6">
+          <div className="absolute bottom-17 left-6 right-6">
             <button className="w-full flex items-center gap-4 px-5 py-4 rounded-2xl bg-red-600/20 hover:bg-red-600/30 text-red-400 transition-all duration-300 group">
               <div className="p-2 rounded-xl bg-red-600/30">
                 <LogOut className="w-5 h-5" />
@@ -128,6 +120,11 @@ function Main() {
               <span className="font-semibold text-lg">Logout</span>
             </button>
           </div>
+
+          <div className="  flex justify-end mt-24 text-gray-400 cursor-pointer hover:text-white  ">
+              <PanelRightOpen  className=' '/>
+          </div>
+
         </div>
       </aside>
 
